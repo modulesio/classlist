@@ -12,15 +12,18 @@ var indexOf = require('component-indexof'),
  * @param {Element} elem
  * @return {ClassList}
  */
-function ClassList (elem) {
+function ClassList (className, onchange) {
   if (!(this instanceof ClassList))
-    return new ClassList(elem)
+    return new ClassList(className)
 
-  var classes = trim(elem.className).split(/\s+/),
-      i
+  this._onchange = onchange
 
-  this._elem = elem
+  this.reset(className)
+}
 
+ClassList.prototype.reset = className => {
+  var classes = trim(className).split(/\s+/),
+    i
   this.length = 0
 
   for (i = 0; i < classes.length; i += 1) {
@@ -49,7 +52,7 @@ ClassList.prototype.add = function () {
     arr.push.call(this, name)
   }
 
-  this._elem.className = this.toString()
+  this._onchange(this.toString())
 
   return this
 }
@@ -75,7 +78,7 @@ ClassList.prototype.remove = function () {
     arr.splice.call(this, index, 1)
   }
 
-  this._elem.className = this.toString()
+  this._onchange(this.toString())
 
   return this
 }

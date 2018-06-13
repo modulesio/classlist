@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/modulesio/classlist",
   "dependencies": {
-    "component-indexof": "0.0.3",
     "trim": "0.0.1"
   },
   "devDependencies": {

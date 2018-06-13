@@ -1,6 +1,6 @@
 {
   "name": "window-classlist",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Not really an Element#classList polyfill.",
   "main": "classlist.js",
   "scripts": {

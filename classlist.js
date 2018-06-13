@@ -65,7 +65,6 @@ class ClassList extends Array {
   
   contains(name) {
     name += '';
-    console.log('contains classes', Array.from(this), name);
     return this.indexOf(name) !== -1;
   }
   

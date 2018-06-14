@@ -45,7 +45,8 @@ class ClassList extends Array {
   remove() {
     var index,
         name,
-        i;
+        i,
+        j;
 
     for (i = 0; i < arguments.length; i += 1) {
       name = arguments[i] + '';
@@ -54,8 +55,11 @@ class ClassList extends Array {
       if (index < 0) {
         continue;
       }
-
-      this.splice(index, 1);
+      
+      for (j = index; j < this.length - 1; j++) {
+        this[index] = this[index + 1];
+      }
+      this.length--;
     }
 
     this.onchange(this.toString());
